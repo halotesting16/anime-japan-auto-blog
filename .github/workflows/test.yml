@@ -11,5 +11,16 @@ jobs:
       - name: Download repository
         uses: actions/checkout@v4
 
-      - name: Run Python
-        run: python bot/test.py
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check Node version
+        run: node -v
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Bot
+        run: node bot/test.js
